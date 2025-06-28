@@ -14,14 +14,13 @@ CREATE TABLE Books (
     genre VARCHAR(100),
     price DECIMAL(10, 2),
     stock_quantity INT,
-    FOREIGN KEY (author_id) REFERENCES authors(author_id)
+    FOREIGN KEY (author_id) REFERENCES Authors(author_id)
 );
 
 CREATE TABLE Customers (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(100) NOT NULL,
-    last_name VARCHAR(100) NOT NULL,
-    email VARCHAR(150) UNIQUE,
+    customer_name VARCHAR(215) NOT NULL,
+    email VARCHAR(215) UNIQUE,
     phone VARCHAR(20),
     address TEXT
 );
@@ -31,7 +30,7 @@ CREATE TABLE Orders (
     customer_id INT,
     order_date DATE,
     total_amount DECIMAL(10, 2),
-    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
 
 CREATE TABLE Order_Details (
@@ -40,6 +39,7 @@ CREATE TABLE Order_Details (
     book_id INT,
     quantity INT,
     price DECIMAL(10, 2),
-    FOREIGN KEY (order_id) REFERENCES orders(order_id),
-    FOREIGN KEY (book_id) REFERENCES books(book_id)
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id),
+    FOREIGN KEY (book_id) REFERENCES Books(book_id)
 );
+
