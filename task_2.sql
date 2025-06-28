@@ -1,8 +1,8 @@
 USE alx_book_store;
 
-CREATE TABLE authors (
+CREATE TABLE Authors (
     author_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
+    author_name VARCHAR(100) NOT NULL,
     biography TEXT,
     birth_date DATE
 );
